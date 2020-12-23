@@ -16,14 +16,13 @@ public class WebSitesi extends JFrame{
 
         add(panel1);
         setSize(500,300);
-        setTitle("Ödev bitti h.o.");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 
         denemeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String adres = "https://www.obilet.com";
+                String adres = textField1.getText();
                 Desktop d = Desktop.getDesktop();
                 try {
                     d.browse(new URI(adres));
