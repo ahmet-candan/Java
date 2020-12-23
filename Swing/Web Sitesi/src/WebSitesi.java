@@ -28,7 +28,8 @@ public class WebSitesi extends JFrame{
                     d.browse(new URI(adres));
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
-                } catch (URISyntaxException uriSyntaxException) {
+                } catch (URISyntaxException uriSyntaxException)
+                {
                     uriSyntaxException.printStackTrace();
                 }
 
