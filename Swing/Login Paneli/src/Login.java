@@ -10,6 +10,10 @@ public class Login extends JFrame{
     private JPasswordField passwordField1;
 
     public Login() {
+        add(panel);
+        setSize(500,500);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
         giris.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -24,8 +28,16 @@ public class Login extends JFrame{
                 else {
                    mesaj= "Kullanıcı Adı veya parola hatalı";
                 }
+                if (mesaj.equals("Hoşgeldiniz"+kullnıcı_adi)){
 
-                JOptionPane.showMessageDialog(panel,mesaj);
+                    JOptionPane.showMessageDialog(panel,mesaj);
+                    System.exit(0);
+                }
+
+                else {
+                    JOptionPane.showMessageDialog(panel,mesaj);
+                }
+
 
                 textField1.setText("");
                 passwordField1.setText("");
