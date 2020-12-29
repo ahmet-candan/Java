@@ -57,7 +57,17 @@ public class Baglanti {
         }
     }
 
-    public void sil()
+    public void sil(){
+        try {
+            statement = con.createStatement();
+            String sorgu =" Delete From calisanlar where id>3";
+            statement.executeUpdate(sorgu);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+    }
     public Baglanti(){
         String url = "jdbc:mysql://"+host+":"+port+"/"+db_ismi+"?useUnicode=true&characterEncoding=utf8";
         try {
@@ -87,8 +97,9 @@ public class Baglanti {
         System.out.println("*****************");
         baglanti.guncelle();
         baglanti.bilgileriGoster();
+        System.out.println("*****************");
+        baglanti.sil();
+        baglanti.bilgileriGoster();
 
     }
-
-
 }
