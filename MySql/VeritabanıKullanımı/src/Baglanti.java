@@ -9,6 +9,28 @@ public class Baglanti {
     private int port = 3306;
     private Connection con = null;
     private Statement statement = null;
+    private PreparedStatement preparedStatement = null;
+
+    public void preparedCalisanlarıGetir(int id){
+
+        String sorgu = "Select * From calisanlar where id > ?";
+        try {
+            preparedStatement = con.prepareStatement(sorgu);
+            preparedStatement.setInt(1,id);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()){
+                String ad = rs.getString("ad");
+                String soyad = rs.getString("soayd");
+                String email = rs.getString("email");
+                System.out.println(" Ad: "+ad+" Soyisim: "+soyad+" Email:"+email);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+    }
 
     private void calisanEkle(){
 
@@ -100,6 +122,9 @@ public class Baglanti {
         System.out.println("*****************");
         baglanti.sil();
         baglanti.bilgileriGoster();
+        System.out.println("*****************");
+        baglanti.preparedCalisanlarıGetir(2);
+
 
     }
 }
