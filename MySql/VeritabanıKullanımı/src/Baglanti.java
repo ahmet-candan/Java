@@ -47,6 +47,17 @@ public class Baglanti {
 
     }
 
+    public void guncelle() {
+        try {
+            statement = con.createStatement();
+            String sorgu ="Update calisanlar Set email='candan@gmal.com' WHERE id =1";
+            statement.executeUpdate(sorgu);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    public void sil()
     public Baglanti(){
         String url = "jdbc:mysql://"+host+":"+port+"/"+db_ismi+"?useUnicode=true&characterEncoding=utf8";
         try {
@@ -72,6 +83,9 @@ public class Baglanti {
         baglanti.bilgileriGoster();
         System.out.println("*****************");
         baglanti.calisanEkle();
+        baglanti.bilgileriGoster();
+        System.out.println("*****************");
+        baglanti.guncelle();
         baglanti.bilgileriGoster();
 
     }
